@@ -52,13 +52,6 @@ public class Simulacion
             Bolillero clon = (Bolillero)bolillero.Clone();
             tareas[i] = Task.Run(() => SimularSinHilos(clon, jugada, sims));
         }
-
-<<<<<<< HEAD
-        long[] resultados = await Task.WhenAll(tareas);
-        foreach (var r in resultados)
-        {
-            totalGanadas += r;
-        }
         return totalGanadas;
     }
 }
