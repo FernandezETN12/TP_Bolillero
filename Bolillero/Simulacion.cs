@@ -1,4 +1,6 @@
 namespace TP.Bolillero;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 public class Simulacion
 {
@@ -51,11 +53,11 @@ public class Simulacion
             tareas[i] = Task.Run(() => SimularSinHilos(clon, jugada, sims));
         }
 
-        await Task.WhenAll(tareas);
-        
-        foreach (var tarea in tareas)
+<<<<<<< HEAD
+        long[] resultados = await Task.WhenAll(tareas);
+        foreach (var r in resultados)
         {
-            totalGanadas += tarea.Result;
+            totalGanadas += r;
         }
         return totalGanadas;
     }

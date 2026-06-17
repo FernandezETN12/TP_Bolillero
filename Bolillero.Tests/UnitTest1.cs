@@ -1,4 +1,5 @@
 ﻿using TP.Bolillero;
+using System.Threading.Tasks;
 
 namespace TP.Bolillero.Tests;
 
@@ -56,6 +57,16 @@ public class UnitTest1
         Simulacion sim = new Simulacion();
         List<int> jugada = new List<int> { 0, 1 };
         long ganadas = sim.SimularConHilos(bolillero, jugada, 100, 4);
+        Assert.InRange(ganadas, 0, 100);
+    }
+
+    [Fact]
+    public async Task TestSimulacionConHilosAsync()
+    {
+        Bolillero bolillero = new Bolillero(5);
+        Simulacion sim = new Simulacion();
+        List<int> jugada = new List<int> { 0, 1 };
+        long ganadas = await sim.SimularConHilosAsync(bolillero, jugada, 100, 4);
         Assert.InRange(ganadas, 0, 100);
     }
 }
